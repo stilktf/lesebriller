@@ -28,7 +28,7 @@ jobs:
             - name: "Build:dockerimage"
               uses: docker/build-push-action@v3
               with:
-                  tags: ghcr.io/stilktf/lesebriller:ice-latest
+                  tags: ghcr.io/stilktf/lesebriller:latest
                   context: "."
                   push: true
                   platforms: linux/amd64, linux/arm64
