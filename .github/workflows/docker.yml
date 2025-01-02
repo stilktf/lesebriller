@@ -23,7 +23,7 @@ jobs:
               with:
                   registry: ghcr.io
                   username: stilktf
-                  password: ${{ secrets.GITHUB_TOKEN }}
+                  password: ${{ secrets.PAT }}
 
             - name: "Build:dockerimage"
               uses: docker/build-push-action@v3
