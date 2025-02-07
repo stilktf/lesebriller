@@ -18,7 +18,7 @@ jobs:
             - name: Install dependencies
               run: go get .
             - name: Build project
-              run: go build -v . -o lesebriller-${{ github.sha}}-${{ matrix.os }}
+              run: go build -o lesebriller-${{ github.sha }}-${{ matrix.os }} -v .
             - name: Upload build artifact
               uses: actions/upload-artifact@v4
               with:
