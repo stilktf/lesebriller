@@ -1,0 +1,24 @@
+name: Build Lesebriller for various operating systems
+
+on: [push]
+
+jobs:
+    build:
+        runs-on: ${{ matrix.os }}
+        strategy:
+            matrix:
+                os: [ubuntu-latest, windows-latest, macos-latest]
+        
+        steps:
+            - uses: actions/checkout@v4
+            - name: Setup Go
+              uses: actions/setup-go@v5
+            - name: Install dependencies
+              run: go get .
+            - name: Build project
+              run: go build -v . -o lesebriller-${{ github.sha}}-${{ matrix.os }}
+            - name: Upload build artifact
+              uses: actions/upload-artifact@v4
+              with:
+                name: lesebriller-${{ github.sha }}-${{ matrix.os }}
+                path: lesebriler-${{ github.sha }}-${{ matrix.os }}
